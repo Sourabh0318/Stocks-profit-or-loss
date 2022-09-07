@@ -14,16 +14,16 @@ function submitHandler() {
     calculateProfitAndLoss(ip, qty, curr);
 }
 
-function calculateProfitAndLoss(initial, quantity, current){
+function calculateProfitAndLoss(initial, stockQuantity, current){
     if(initial > current) {
-        let loss = (initial - current)*quantity;
+        let loss = (initial - current)*stockQuantity;
         let lossPercentage = (loss/initial)*100;
 
         output.textContent = `Hey the loss is ${loss} and the loss percent is ${lossPercentage}%`;
 
         output.style.color = "red";
     }else if(current > initial) {
-        let profit = (current - initial)*quantity;
+        let profit = (current - initial)*stockQuantity;
         let profitPercentage = (profit/initial)* 100;
 
         output.textContent = `Hey the profit is ${profit} and the profit percent is ${profitPercentage}%`;
@@ -33,5 +33,11 @@ function calculateProfitAndLoss(initial, quantity, current){
         output.textContent = 'No pain no gain and no gain no pain';
 
         output.style.color = "white"
+    }
+
+    if(initialPrice.value === '' || quantity.value === '' || currentPrice.value === ''){
+        output.textContent = "Please Enter the valid inputs"
+
+        output.style.color = "red";
     }
 }

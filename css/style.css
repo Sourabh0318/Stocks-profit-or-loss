@@ -46,6 +46,7 @@
 label{
     display: block;
     padding: 1rem 0rem;
+    font-size: large;
 }
 input{
     display: block;
